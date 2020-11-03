@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens;
+
+group 'com.github.playernguyen.optessentials'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    /**
+     * Papermc.io
+     */
+    maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:19.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // PaperMinecraft
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.3-R0.1-SNAPSHOT'
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter(ReplaceTokens, tokens: ['@version@': project.version])
+    }
+}
