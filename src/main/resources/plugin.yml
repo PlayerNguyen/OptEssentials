@@ -1,3 +1,5 @@
 name: OptEssentials
 version: @version@
 authors: [ Player_Nguyen ]
+main: com.github.playernguyen.optessentials
+softdepend: [ PlaceholderAPI ]
